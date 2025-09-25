@@ -1,13 +1,14 @@
 ---
+import '@fontsource-variable/plus-jakarta-sans';
 import '../styles/global.css';
-const { content } = Astro.props;
+const { content = { title: 'Subhajit Kundu' } } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png+xml" href="/favicon.png" />
 		<title>{content.title}</title>
 	</head>
 	<body>
