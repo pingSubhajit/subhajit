@@ -1,7 +1,36 @@
 ---
 import '@fontsource-variable/plus-jakarta-sans';
 import '../styles/global.css';
-const { content = { title: 'Subhajit Kundu' } } = Astro.props;
+const { content = { title: 'Subhajit Kundu' }, seo = {} } = Astro.props;
+
+const {
+	title,
+	description,
+	canonical,
+	robots = 'index,follow',
+	openGraph = {},
+	twitter = {},
+	jsonLd,
+} = seo;
+
+const pageTitle = title ?? content.title ?? 'Subhajit Kundu';
+const canonicalUrl = canonical ?? Astro.url?.href ?? '';
+
+const og = {
+	url: openGraph.url ?? canonicalUrl,
+	title: openGraph.title ?? pageTitle,
+	description: openGraph.description ?? description,
+	image: openGraph.image,
+	siteName: openGraph.siteName ?? 'Subhajit Kundu',
+	type: openGraph.type ?? 'website',
+};
+
+const tw = {
+	card: twitter.card ?? 'summary_large_image',
+	title: twitter.title ?? pageTitle,
+	description: twitter.description ?? description,
+	image: twitter.image ?? og.image,
+};
 ---
 
 <html lang="en">
@@ -9,7 +38,35 @@ const { content = { title: 'Subhajit Kundu' } } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png+xml" href="/favicon.png" />
-		<title>{content.title}</title>
+		<title>{pageTitle}</title>
+
+		{description && <meta name="description" content={description} />}
+		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+		{robots && <meta name="robots" content={robots} />}
+
+		{/* Open Graph */}
+		{og.title && <meta property="og:title" content={og.title} />}
+		{og.description && <meta property="og:description" content={og.description} />}
+		{og.type && <meta property="og:type" content={og.type} />} 
+		{og.url && <meta property="og:url" content={og.url} />}
+		{og.siteName && <meta property="og:site_name" content={og.siteName} />}
+		{og.image && <meta property="og:image" content={og.image} />}
+
+		{/* Twitter */}
+		{tw.card && <meta name="twitter:card" content={tw.card} />}
+		{tw.title && <meta name="twitter:title" content={tw.title} />}
+		{tw.description && <meta name="twitter:description" content={tw.description} />}
+		{tw.image && <meta name="twitter:image" content={tw.image} />}
+
+		{/* JSON-LD */}
+		{Array.isArray(jsonLd) && jsonLd.length > 0 && (
+			jsonLd.map((schema) => (
+				<script type="application/ld+json">{JSON.stringify(schema)}</script>
+			))
+		)}
+		{jsonLd && !Array.isArray(jsonLd) && (
+			<script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+		)}
 	</head>
 	<body>
 		<slot />

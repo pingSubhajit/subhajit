@@ -1,108 +1,175 @@
 ---
-import { Button } from "@/components/ui/button"
 import MainLayout from "@/layouts/main.astro"
-import { Image } from 'astro:assets';
 import profile from '@/assets/profile.png';
 import LightboxImage from '@/components/LightboxImage.astro';
+
+const pageTitle = 'Subhajit Kundu';
+const pageDescription = 'Building products for students and early career professionals. Crafted software at Betterstacks; designing web experiences that last.';
+const canonical = Astro.url.href;
+const ogImage = (profile as any).src ?? (profile as any);
+
+const personJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Subhajit Kundu",
+	url: canonical,
+	image: ogImage,
+	description: pageDescription,
+};
 ---
 
-<MainLayout>
+<MainLayout seo={{
+	title: pageTitle,
+	description: pageDescription,
+	canonical,
+	robots: 'index,follow',
+	openGraph: {
+		title: pageTitle,
+		description: pageDescription,
+		image: ogImage,
+		type: 'website',
+		siteName: 'Subhajit Kundu',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: pageTitle,
+		description: pageDescription,
+		image: ogImage,
+	},
+	jsonLd: personJsonLd,
+}}>
 	<div class="px-24 py-32 max-w-[850px] mx-auto">
 		<div class="w-full bg-gradient-to-b from-background to-background/0 h-48 fixed top-0 left-0 pointer-events-none"></div>
 		<div class="w-full bg-gradient-to-t from-background to-background/0 h-48 fixed bottom-0 left-0 pointer-events-none"></div>
 		
-		<LightboxImage src={profile} alt="Subhajit Kundu" class="w-24 h-24 rounded-full" dialogId="profile" />
-		<h1 class="mt-4">Subhajit Kundu</h1>
-		<p class="mt-8 text-sm">Building products for students and early career professionals, helping them stand out in the crowded world for who they are. Built software in <a href="https://betterstacks.com">Betterstacks</a></p>
+		<div class="reveal-children">
+			<LightboxImage src={profile} alt="Subhajit Kundu" class="w-24 h-24 rounded-full" dialogId="profile" />
+			<h1 class="mt-4">Subhajit Kundu</h1>
+			<p class="mt-8 text-sm">Building products for students and early career professionals, helping them stand out in the crowded world for who they are. Built software in <a href="https://betterstacks.com">Betterstacks</a></p>
 
-		<div class="mt-16 grid grid-cols-3 gap-4">
-			<div class="">
-				<p class="text-xs opacity-60 uppercase mb-4">Building</p>
+			<div class="mt-16 grid grid-cols-3 gap-4">
+				<div>
+					<p class="text-xs opacity-60 uppercase mb-4">Building</p>
+					<div>
+						<div>
+							<a href="https://letraz.app" target="_blank">Letraz</a>
+							<p class="mt-2 opacity-60">Craft unique resumes for each job application.</p>
+						</div>
+					</div>
+				</div>
 
 				<div>
-					<div class="">
-						<a href="https://letraz.app" target="_blank">Letraz</a>
-						<p class="mt-2 opacity-60">Craft unique resumes for each job application.</p>
+					<p class="text-xs opacity-60 uppercase mb-4">Projects</p>
+					<div class="space-y-4">
+						<div>
+							<a href="https://halycron.space" target="_blank">Halycron</a>
+							<p class="mt-2 opacity-60">Absolutely secure photo storage for most precious memories.</p>
+						</div>
+						<div>
+							<a href="https://varnan.site" target="_blank">Varnan</a>
+							<p class="mt-2 opacity-60">Automate workflow between Github & Linear.</p>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<p class="text-xs opacity-60 uppercase mb-4">Work</p>
+					<div class="space-y-4">
+						<div>
+							<a href="https://rize.so" target="_blank">Rize</a>
+							<p class="mt-2 opacity-60">One link, your story, not just resume.</p>
+						</div>
+						<div>
+							<a href="https://betterstacks.com" target="_blank">Betterstacks</a>
+							<p class="mt-2 opacity-60">Never lose anything you find online, right when you need it.</p>
+						</div>
+						<div>
+							<a href="https://converse.so" target="_blank">Converse</a>
+							<p class="mt-2 opacity-60">CRM for businesses that thrive on calls.</p>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="">
-				<p class="text-xs opacity-60 uppercase mb-4">Projects</p>
-
-				<div class="space-y-4">
-					<div>
-						<a href="https://halycron.space" target="_blank">Halycron</a>
-						<p class="mt-2 opacity-60">Absolutely secure photo storage for most precious memories.</p>
-					</div>
-
-					<div>
-						<a href="https://varnan.site" target="_blank">Varnan</a>
-						<p class="mt-2 opacity-60">Automate workflow between Github & Linear.</p>
-					</div>
-				</div>
+			<div class="mt-16">
+				<p>
+					Heads down working on Letraz. Learning new things everyday about better ways to engineer solutions. Obsessed with crafting experiences that lasts in time. Check out here.
+				</p>
+				<p class="mt-8">
+					Web is free, web is beautiful, web is for everyone. Since the last eight years, i have been learning and building on the web. And it has been a journey of profound growth and satisfaction. I see myself building and crafting experiences on web for a long time.
+				</p>
+				<p class="mt-8">
+					Enjoying deep, dark vocals, mixing them with ethereal melodies, creating a world of my own. Enthusiastic about playing guitar, badminton, gym, books and movies that makes your head hurt. And yes, i always enjoy a good cup of coffee.
+				</p>
 			</div>
 
-			<div class="">
-				<p class="text-xs opacity-60 uppercase mb-4">Work</p>
-
-				<div class="space-y-4">
+			<div class="mt-16">
+				<p class="text-xs opacity-60 uppercase mb-4">Education</p>
+				<div class="grid grid-cols-2 gap-4">
 					<div>
-						<a href="https://rize.so" target="_blank">Rize</a>
-						<p class="mt-2 opacity-60">One link, your story, not just resume.</p>
+						<p>Amity University, Noida</p>
+						<p class="opacity-60">MCA in Blockchain Technology</p>
 					</div>
-
 					<div>
-						<a href="https://betterstacks.com" target="_blank">Betterstacks</a>
-						<p class="mt-2 opacity-60">Never lose anything you find online, right when you need it.</p>
+						<p>Kalyani Mahavidyalaya</p>
+						<p class="opacity-60">B.Com in Commerce (Financial Accounting)</p>
 					</div>
-
 					<div>
-						<a href="https://converse.so" target="_blank">Converse</a>
-						<p class="mt-2 opacity-60">CRM for businesses that thrive on calls.</p>
+						<p>Google LLC.</p>
+						<p class="opacity-60">Professional in UX/UI Design</p>
 					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="mt-16">
-			<p class="">
-				Heads down working on Letraz. Learning new things everyday about better ways to engineer solutions. Obsessed with crafting experiences that lasts in time. Check out here.
-			</a>
-
-			<p class="mt-8">
-				Web is free, web is beautiful, web is for everyone. Since the last eight years, i have been learning and building on the web. And it has been a journey of profound growth and satisfaction. I see myself building and crafting experiences on web for a long time.
-			</p>
-
-			<p class="mt-8">
-				Enjoying deep, dark vocals, mixing them with ethereal melodies, creating a world of my own. Enthusiastic about playing guitar, badminton, gym, books and movies that makes your head hurt. And yes, i always enjoy a good cup of coffee.
-			</p>
-		</div>
-
-		<div class="mt-16">
-			<p class="text-xs opacity-60 uppercase mb-4">Education</p>
-
-			<div class="grid grid-cols-2 gap-4">
-				<div>
-					<p>Amity University, Noida</a>
-					<p class="opacity-60">MCA in Blockchain Technology</p>
-				</div>
-
-				<div>
-					<p>Kalyani Mahavidyalaya</a>
-					<p class="opacity-60">B.Com in Commerce (Financial Accounting)</p>
-				</div>
-
-				<div>
-					<p>Google LLC.</a>
-					<p class="opacity-60">Professional in UX/UI Design</p>
-				</div>
-
-				<div>
-					<p>Meta LLC.</a>
-					<p class="opacity-60">Professional in Frontend Development</p>
+					<div>
+						<p>Meta LLC.</p>
+						<p class="opacity-60">Professional in Frontend Development</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </MainLayout>
+
+<style>
+	@keyframes reveal-up {
+		0% { opacity: 0; transform: translateY(8px); filter: blur(6px); }
+		100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+	}
+
+	.reveal-children {
+		--reveal-duration: 800ms;
+		--reveal-stagger: 0.08s;
+	}
+
+	.reveal-children > * {
+		opacity: 0;
+		transform: translateY(8px);
+		filter: blur(6px);
+		animation-name: reveal-up;
+		animation-duration: var(--reveal-duration);
+		animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+		animation-fill-mode: forwards;
+		animation-delay: 0s;
+		will-change: opacity, transform, filter;
+	}
+
+	.reveal-children > *:nth-child(1) { animation-delay: calc(var(--reveal-stagger) * 0); }
+	.reveal-children > *:nth-child(2) { animation-delay: calc(var(--reveal-stagger) * 1); }
+	.reveal-children > *:nth-child(3) { animation-delay: calc(var(--reveal-stagger) * 2); }
+	.reveal-children > *:nth-child(4) { animation-delay: calc(var(--reveal-stagger) * 3); }
+	.reveal-children > *:nth-child(5) { animation-delay: calc(var(--reveal-stagger) * 4); }
+	.reveal-children > *:nth-child(6) { animation-delay: calc(var(--reveal-stagger) * 5); }
+	.reveal-children > *:nth-child(7) { animation-delay: calc(var(--reveal-stagger) * 6); }
+	.reveal-children > *:nth-child(8) { animation-delay: calc(var(--reveal-stagger) * 7); }
+	.reveal-children > *:nth-child(9) { animation-delay: calc(var(--reveal-stagger) * 8); }
+	.reveal-children > *:nth-child(10) { animation-delay: calc(var(--reveal-stagger) * 9); }
+	.reveal-children > *:nth-child(11) { animation-delay: calc(var(--reveal-stagger) * 10); }
+	.reveal-children > *:nth-child(12) { animation-delay: calc(var(--reveal-stagger) * 11); }
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal-children > * {
+			animation: none !important;
+			opacity: 1 !important;
+			transform: none !important;
+			filter: none !important;
+		}
+	}
+</style>
