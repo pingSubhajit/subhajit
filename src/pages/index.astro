@@ -38,18 +38,18 @@ const personJsonLd = {
 	},
 	jsonLd: personJsonLd,
 }}>
-	<div class="px-24 py-32 max-w-[850px] mx-auto">
+	<div class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[850px] mx-auto">
 		<div class="w-full bg-gradient-to-b from-background to-background/0 h-48 fixed top-0 left-0 pointer-events-none"></div>
 		<div class="w-full bg-gradient-to-t from-background to-background/0 h-48 fixed bottom-0 left-0 pointer-events-none"></div>
 		
 		<div class="reveal-children">
-			<LightboxImage src={profile} alt="Subhajit Kundu" class="w-24 h-24 rounded-full" dialogId="profile" />
+			<LightboxImage src={profile} alt="Subhajit Kundu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full" dialogId="profile" />
 			<h1 class="mt-4">Subhajit Kundu</h1>
-			<p class="mt-8 text-sm">Building products for students and early career professionals, helping them stand out in the crowded world for who they are. Built software in <a href="https://betterstacks.com">Betterstacks</a></p>
+			<p class="mt-2 lg:mt-8 text-sm">Building products for students and early career professionals, helping them stand out in the crowded world for who they are. Built software in <a href="https://betterstacks.com">Betterstacks</a></p>
 
-			<div class="mt-16 grid grid-cols-3 gap-4">
+			<div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-4">
 				<div>
-					<p class="text-xs opacity-60 uppercase mb-4">Building</p>
+					<p class="text-xs opacity-60 uppercase mb-2 lg:mb-4">Building</p>
 					<div>
 						<div>
 							<a href="https://letraz.app" target="_blank">Letraz</a>
@@ -59,8 +59,8 @@ const personJsonLd = {
 				</div>
 
 				<div>
-					<p class="text-xs opacity-60 uppercase mb-4">Projects</p>
-					<div class="space-y-4">
+					<p class="text-xs opacity-60 uppercase mb-2 lg:mb-4">Projects</p>
+					<div class="space-y-2 lg:space-y-4">
 						<div>
 							<a href="https://halycron.space" target="_blank">Halycron</a>
 							<p class="mt-2 opacity-60">Absolutely secure photo storage for most precious memories.</p>
@@ -74,7 +74,7 @@ const personJsonLd = {
 
 				<div>
 					<p class="text-xs opacity-60 uppercase mb-4">Work</p>
-					<div class="space-y-4">
+					<div class="space-y-2 lg:space-y-4">
 						<div>
 							<a href="https://rize.so" target="_blank">Rize</a>
 							<p class="mt-2 opacity-60">One link, your story, not just resume.</p>
@@ -104,8 +104,8 @@ const personJsonLd = {
 			</div>
 
 			<div class="mt-16">
-				<p class="text-xs opacity-60 uppercase mb-4">Education</p>
-				<div class="grid grid-cols-2 gap-4">
+				<p class="text-xs opacity-60 uppercase mb-2 lg:mb-4">Education</p>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
 					<div>
 						<p>Amity University, Noida</p>
 						<p class="opacity-60">MCA in Blockchain Technology</p>
