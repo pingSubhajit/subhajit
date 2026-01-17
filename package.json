@@ -9,14 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.6",
-    "@astrojs/react": "^4.4.0",
+    "@astrojs/mdx": "5.0.0-beta.1",
+    "@astrojs/react": "5.0.0-beta.1",
     "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.13",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
-    "astro": "^5.14.0",
+    "astro": "6.0.0-beta.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",
