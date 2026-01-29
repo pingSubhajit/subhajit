@@ -2,11 +2,18 @@
 import MainLayout from "@/layouts/main.astro"
 import profile from '@/assets/profile.png';
 import LightboxImage from '@/components/LightboxImage.astro';
+import GalleryGrid from "@/components/gallery/GalleryGrid.astro";
+import type { GalleryManifest } from "@/features/gallery/types";
+
+import manifestJson from "@/generated/gallery.manifest.json";
 
 const pageTitle = 'Subhajit Kundu';
 const pageDescription = 'Building tooling for creation robust RAG systems at scale. Developing software at Betterstacks; designing web experiences that last.';
 const canonical = Astro.url.href;
 const ogImage = (profile as any).src ?? (profile as any);
+
+const manifest = manifestJson as unknown as GalleryManifest;
+const galleryPhotos = Array.isArray(manifest?.photos) ? manifest.photos : [];
 
 const personJsonLd = {
 	"@context": "https://schema.org",
@@ -43,9 +50,8 @@ const personJsonLd = {
 			<LightboxImage src={profile} alt="Subhajit Kundu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full" dialogId="profile" />
 			<h1 class="mt-4">Subhajit Kundu</h1>
 			<p class="mt-2 lg:mt-8 text-sm">Building tooling for developing robust, reliable RAG system at scale. Dedicated on making RAG as easy as writing six lines of code. Shipping software at <a href="https://betterstacks.com" target="_blank">Betterstacks</a></p>
-			<p class="mt-4 text-sm opacity-70"><a href="/gallery">Photography gallery</a></p>
 
-			<div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-4">
+			<section class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-4">
 				<div>
 					<p class="text-xs opacity-60 uppercase mb-2 lg:mb-4">Building</p>
 					<div>
@@ -91,9 +97,9 @@ const personJsonLd = {
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
-			<div class="mt-16">
+			<section class="mt-16">
 				<p>
 					Heads down working on Unrag. Learning new things everyday about better ways to engineer solutions. Obsessed with crafting experiences that lasts in time. Check out here.
 				</p>
@@ -103,9 +109,17 @@ const personJsonLd = {
 				<p class="mt-8">
 					Enjoying deep, dark vocals, mixing them with ethereal melodies, creating a world of my own. Enthusiastic about playing guitar, badminton, gym, books and movies that makes your head hurt. And yes, i always enjoy a good cup of coffee.
 				</p>
-			</div>
+			</section>
 
-			<div class="mt-16">
+            <section class="mt-16">
+                <p class="text-xs opacity-60 uppercase mb-2 lg:mb-4">Gallery</p>
+                <GalleryGrid photos={galleryPhotos} maxCount={3} hideThirdOnSmall={true} />
+                <div class="text-xs opacity-60">
+                    <a href="/gallery">View all photographs</a>
+                </div>
+            </section>
+
+			<section class="mt-16">
 				<p class="text-xs opacity-60 uppercase mb-2 lg:mb-4">Education</p>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
 					<div>
@@ -125,7 +139,7 @@ const personJsonLd = {
 						<p class="opacity-60">Professional in Frontend Development</p>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
 	</div>
 </MainLayout>

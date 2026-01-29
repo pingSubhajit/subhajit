@@ -5,28 +5,31 @@ import GalleryLightbox from "./GalleryLightbox.astro";
 
 export interface Props {
   photos: GalleryPhoto[];
+  maxCount?: number;
+  hideThirdOnSmall?: boolean;
 }
 
-const { photos } = Astro.props as Props;
+const { photos, maxCount, hideThirdOnSmall = false } = Astro.props as Props;
 const galleryId = "photos";
+const visiblePhotos = typeof maxCount === "number" ? photos.slice(0, maxCount) : photos;
 ---
 
-{photos.length === 0 ? (
-  <div class="mt-10 rounded-xl border border-border/60 bg-card/30 p-6 text-sm opacity-75">
+{visiblePhotos.length === 0 ? (
+  <div class="rounded-xl border border-border/60 bg-card/30 p-6 text-sm opacity-75">
     No photos yet. Add entries to <code class="opacity-90">src/data/gallery.json</code> and put the
     originals in <code class="opacity-90">public/</code> (for example <code class="opacity-90">public/photos/</code>),
     then restart <code class="opacity-90">astro dev</code>.
   </div>
 ) : (
   <>
-    <div class="mt-10 columns-1 sm:columns-2 lg:columns-3 gap-4">
-      {photos.map((photo, index) => (
-        <div class="break-inside-avoid">
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4">
+      {visiblePhotos.map((photo, index) => (
+        <div class={`break-inside-avoid ${hideThirdOnSmall && index === 2 ? "hidden lg:block" : ""}`}>
           <GalleryCard photo={photo} index={index} galleryId={galleryId} />
         </div>
       ))}
     </div>
-    <GalleryLightbox photos={photos} galleryId={galleryId} />
+    <GalleryLightbox photos={visiblePhotos} galleryId={galleryId} />
   </>
 )}
 
