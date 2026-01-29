@@ -58,7 +58,10 @@ const safeJson = JSON.stringify(photos).replaceAll("<", "\\u003c");
 
   .glb-img {
     display: block;
-    max-width: 90vw;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    max-width: min(90vw, 1100px);
     max-height: 85vh;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
   }
