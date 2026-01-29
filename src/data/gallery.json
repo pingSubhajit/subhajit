@@ -1,8 +1,8 @@
 [
   {
-    "src": "/gallery/workspace.jpg",
-    "title": "Until the work stops feeling like work",
-    "shotUsing": "Canon Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
+    "src": "/gallery/guitar.jpg",
+    "title": "In between the notes left unfinished",
+    "shotUsing": "Canon Canon EOS R10 ƒ/5.6, 1/80, 50mm, ISO125",
     "location": "Kalyani, India",
     "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
   },
@@ -17,6 +17,13 @@
     "src": "/gallery/halycron.jpg",
     "title": "Last image of the Halycron codebase before the acquisition",
     "shotUsing": "Canon Canon EOS R10 ƒ/3.5, 1/200, 18mm, ISO4000",
+    "location": "Kalyani, India",
+    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+  },
+  {
+    "src": "/gallery/workspace.jpg",
+    "title": "Until the work stops feeling like work",
+    "shotUsing": "Canon Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
     "location": "Kalyani, India",
     "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
   }
