@@ -1,0 +1,43 @@
+---
+import type { GalleryPhoto } from "@/features/gallery/types";
+
+export interface Props {
+  photo: GalleryPhoto;
+  index: number;
+  galleryId: string;
+}
+
+const { photo, index, galleryId } = Astro.props as Props;
+
+const alt = photo.title?.trim() ? photo.title : "Photograph";
+const aspectRatio = `${photo.width} / ${photo.height}`;
+---
+
+<button
+  type="button"
+  class="group block w-full mb-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-xl"
+  data-gallery-id={galleryId}
+  data-gallery-index={String(index)}
+  aria-label={`Open photo: ${alt}`}
+>
+  <div
+    class="relative overflow-hidden rounded-xl bg-card/60 border border-border/60 shadow-sm"
+    style={`aspect-ratio: ${aspectRatio};`}
+  >
+    <img
+      src={photo.thumbSrc}
+      width={photo.thumbWidth}
+      height={photo.thumbHeight}
+      loading="lazy"
+      decoding="async"
+      alt={alt}
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+  </div>
+
+  {photo.title?.trim() && (
+    <div class="mt-2 text-xs opacity-70 truncate">{photo.title}</div>
+  )}
+</button>
+

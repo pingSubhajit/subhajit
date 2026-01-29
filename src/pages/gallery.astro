@@ -1,0 +1,47 @@
+---
+import MainLayout from "@/layouts/main.astro";
+import GalleryGrid from "@/components/gallery/GalleryGrid.astro";
+import type { GalleryManifest } from "@/features/gallery/types";
+
+// Generated at build/dev time by `scripts/generate-gallery.mjs`
+import manifestJson from "@/generated/gallery.manifest.json";
+
+const manifest = manifestJson as unknown as GalleryManifest;
+const photos = Array.isArray(manifest?.photos) ? manifest.photos : [];
+
+const pageTitle = "Gallery";
+const pageDescription = "A collection of photographs.";
+const canonical = Astro.url.href;
+---
+
+<MainLayout
+  seo={{
+    title: pageTitle,
+    description: pageDescription,
+    canonical,
+    robots: "index,follow",
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      type: "website",
+      siteName: "Subhajit Kundu",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDescription,
+    },
+  }}
+>
+  <main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[1100px] mx-auto">
+    <div class="max-w-[850px]">
+      <h1>Gallery</h1>
+      <p class="mt-3 opacity-70">
+        Photographs I’ve taken—click any image to view it full quality.
+      </p>
+    </div>
+
+    <GalleryGrid photos={photos} />
+  </main>
+</MainLayout>
+
