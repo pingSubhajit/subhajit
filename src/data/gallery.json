@@ -3,28 +3,36 @@
     "src": "/gallery/guitar.jpg",
     "title": "In between the notes left unfinished",
     "shotUsing": "Canon Canon EOS R10 ƒ/5.6, 1/80, 50mm, ISO125",
-    "location": "Kalyani, India",
-    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+    "location": "Kalyani, India"
   },
   {
     "src": "/gallery/leaves.jpg",
     "title": "The lifeline of local transport",
     "shotUsing": "Canon Canon EOS R10 ƒ/6.3, 1/4000, 150mm, ISO400",
-    "location": "Kalyani, India",
-    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+    "location": "Kalyani, India"
   },
   {
     "src": "/gallery/halycron.jpg",
     "title": "Last image of the Halycron codebase before the acquisition",
     "shotUsing": "Canon Canon EOS R10 ƒ/3.5, 1/200, 18mm, ISO4000",
-    "location": "Kalyani, India",
-    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+    "location": "Kalyani, India"
   },
   {
     "src": "/gallery/workspace.jpg",
     "title": "Until the work stops feeling like work",
     "shotUsing": "Canon Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
-    "location": "Kalyani, India",
-    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+    "location": "Kalyani, India"
+  },
+  {
+    "src": "/gallery/railway.jpg",
+    "title": "Chasing the waves of livelihood and ambition",
+    "shotUsing": "Canon Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
+    "location": "Kalyani, India"
+  },
+  {
+    "src": "/gallery/hostel.jpg",
+    "title": "Forgotten and never replaced",
+    "shotUsing": "Canon Canon EOS R10 ƒ/3.5, 1/250, 18mm, ISO1600",
+    "location": "Kalyani, India"
   }
 ]
