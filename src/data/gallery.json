@@ -5,5 +5,19 @@
     "shotUsing": "Canon Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
     "location": "Kalyani, India",
     "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+  },
+  {
+    "src": "/gallery/leaves.jpg",
+    "title": "The lifeline of local transport",
+    "shotUsing": "Canon Canon EOS R10 ƒ/6.3, 1/4000, 150mm, ISO400",
+    "location": "Kalyani, India",
+    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
+  },
+  {
+    "src": "/gallery/halycron.jpg",
+    "title": "Last image of the Halycron codebase before the acquisition",
+    "shotUsing": "Canon Canon EOS R10 ƒ/3.5, 1/200, 18mm, ISO4000",
+    "location": "Kalyani, India",
+    "description": "Replace this entry with your photos in public/. The generator will create thumbnails at build time and produce a manifest used by /gallery."
   }
 ]

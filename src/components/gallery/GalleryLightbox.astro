@@ -13,40 +13,18 @@ const dataId = `${galleryId}-data`;
 const safeJson = JSON.stringify(photos).replaceAll("<", "\\u003c");
 ---
 
-<dialog
-  id={dialogId}
-  class="p-0 bg-transparent border-none w-[min(1100px,95vw)] max-w-[95vw] overflow-visible"
-  aria-label="Photo viewer"
->
-  <div class="glb-shell">
+<dialog id={dialogId} class="glb p-0 bg-transparent">
+  <div class="glb-content">
     <button type="button" class="glb-close" aria-label="Close">×</button>
 
-    <div class="glb-body">
-      <div class="glb-media">
-        <div class="glb-media-inner">
-          <div class="glb-spinner" aria-hidden="true"></div>
-          <img class="glb-img" alt="" />
-        </div>
-        <div class="glb-nav">
-          <button type="button" class="glb-prev" aria-label="Previous photo">‹</button>
-          <button type="button" class="glb-next" aria-label="Next photo">›</button>
-        </div>
-      </div>
+    <button type="button" class="glb-nav glb-prev" aria-label="Previous">‹</button>
+    <button type="button" class="glb-nav glb-next" aria-label="Next">›</button>
 
-      <div class="glb-meta">
-        <div class="glb-title"></div>
-        <dl class="glb-dl">
-          <div class="glb-row glb-row-shot">
-            <dt>Shot using</dt>
-            <dd class="glb-shot"></dd>
-          </div>
-          <div class="glb-row glb-row-loc">
-            <dt>Location</dt>
-            <dd class="glb-loc"></dd>
-          </div>
-        </dl>
-        <p class="glb-desc"></p>
-      </div>
+    <img class="glb-img" alt="" />
+
+    <div class="glb-info">
+      <div class="glb-title"></div>
+      <div class="glb-meta"></div>
     </div>
   </div>
 </dialog>
@@ -54,113 +32,119 @@ const safeJson = JSON.stringify(photos).replaceAll("<", "\\u003c");
 <script type="application/json" id={dataId} set:html={safeJson}></script>
 
 <style>
-  dialog::backdrop { background-color: rgba(0, 0, 0, 0.65); }
-  dialog[open] { inset: 0; margin: auto; display: grid; place-items: center; }
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
 
-  .glb-shell { position: relative; }
+  dialog.glb {
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
 
-  .glb-body {
+  dialog.glb[open] {
+    inset: 0;
+    margin: auto;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    align-items: start;
-    background: oklch(0.19 0 0 / 0.95);
-    border: 1px solid oklch(1 0 0 / 0.12);
-    border-radius: 16px;
-    padding: 14px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+    place-items: center;
   }
 
-  @media (min-width: 900px) {
-    .glb-body { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
-  }
-
-  .glb-media { position: relative; }
-  .glb-media-inner {
+  .glb-content {
     position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    background: oklch(0.14 0 0);
-    border: 1px solid oklch(1 0 0 / 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .glb-img {
     display: block;
-    max-height: min(78vh, 820px);
-    width: 100%;
-    object-fit: contain;
+    max-width: 90vw;
+    max-height: 85vh;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
   }
-
-  .glb-spinner {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    border: 2px solid rgba(255,255,255,0.25);
-    border-top-color: rgba(255,255,255,0.85);
-    animation: glb-spin 900ms linear infinite;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .glb-media-inner.loading .glb-spinner { opacity: 1; }
-  .glb-media-inner.loading .glb-img { opacity: 0.15; }
-
-  @keyframes glb-spin { to { transform: rotate(360deg); } }
-
-  .glb-nav {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    pointer-events: none;
-    padding: 10px;
-  }
-
-  .glb-prev, .glb-next {
-    pointer-events: auto;
-    width: 42px;
-    height: 42px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(0,0,0,0.35);
-    color: rgba(255,255,255,0.9);
-    font-size: 28px;
-    line-height: 1;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    transition: background 120ms ease, transform 120ms ease;
-  }
-  .glb-prev:hover, .glb-next:hover { background: rgba(0,0,0,0.5); transform: scale(1.03); }
 
   .glb-close {
     position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 42px;
-    height: 42px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(0,0,0,0.55);
-    color: rgba(255,255,255,0.9);
+    top: -8px;
+    right: -4px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 28px;
     line-height: 1;
     display: grid;
     place-items: center;
     cursor: pointer;
+    transition: color 120ms ease;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
   }
 
-  .glb-meta { padding: 6px 4px 2px; }
-  .glb-title { font-size: 14px; font-weight: 600; line-height: 1.35; }
-  .glb-dl { margin-top: 10px; display: grid; gap: 10px; }
-  .glb-row dt { font-size: 11px; opacity: 0.55; text-transform: uppercase; letter-spacing: 0.06em; }
-  .glb-row dd { margin-top: 4px; font-size: 13px; opacity: 0.85; }
-  .glb-desc { margin-top: 12px; font-size: 13px; opacity: 0.75; line-height: 1.55; }
+  .glb-close:focus,
+  .glb-close:focus-visible,
+  .glb-nav:focus,
+  .glb-nav:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .glb-close:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .glb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 32px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: color 120ms ease;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  }
+
+  .glb-nav:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .glb-prev { left: 16px; }
+  .glb-next { right: 16px; }
+
+  .glb-info {
+    margin-top: 16px;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .glb-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .glb-title:empty {
+    display: none;
+  }
+
+  .glb-meta {
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .glb-meta:empty {
+    display: none;
+  }
 </style>
 
 <script define:vars={{ dialogId, dataId, galleryId }}>
@@ -173,50 +157,38 @@ const safeJson = JSON.stringify(photos).replaceAll("<", "\\u003c");
     const photos = JSON.parse(dataEl.textContent || "[]");
     const triggers = Array.from(document.querySelectorAll(`[data-gallery-id="${galleryId}"]`));
 
-    const mediaInner = dialog.querySelector(".glb-media-inner");
     const img = dialog.querySelector(".glb-img");
     const closeBtn = dialog.querySelector(".glb-close");
     const prevBtn = dialog.querySelector(".glb-prev");
     const nextBtn = dialog.querySelector(".glb-next");
-
     const titleEl = dialog.querySelector(".glb-title");
-    const shotEl = dialog.querySelector(".glb-shot");
-    const locEl = dialog.querySelector(".glb-loc");
-    const descEl = dialog.querySelector(".glb-desc");
-    const rowShot = dialog.querySelector(".glb-row-shot");
-    const rowLoc = dialog.querySelector(".glb-row-loc");
+    const metaEl = dialog.querySelector(".glb-meta");
 
     if (!(img instanceof HTMLImageElement)) return;
 
     let currentIndex = 0;
     let previousOverflow = "";
 
-    const setLoading = (isLoading) => {
-      if (!mediaInner) return;
-      mediaInner.classList.toggle("loading", !!isLoading);
+    const clampIndex = (idx) => {
+      if (!photos.length) return 0;
+      return Math.min(Math.max(idx, 0), photos.length - 1);
     };
 
-    const setText = (el, text) => {
-      if (!el) return;
-      el.textContent = text || "";
-    };
-
-    const setRowVisible = (row, visible) => {
-      if (!row) return;
-      row.style.display = visible ? "" : "none";
+    const updateNavVisibility = () => {
+      const hasMultiple = photos.length > 1;
+      if (prevBtn instanceof HTMLElement) {
+        prevBtn.style.visibility = hasMultiple && currentIndex > 0 ? "visible" : "hidden";
+      }
+      if (nextBtn instanceof HTMLElement) {
+        nextBtn.style.visibility = hasMultiple && currentIndex < photos.length - 1 ? "visible" : "hidden";
+      }
     };
 
     const prefetch = (idx) => {
       const p = photos[idx];
       if (!p?.src) return;
       const im = new Image();
-      im.decoding = "async";
       im.src = p.src;
-    };
-
-    const clampIndex = (idx) => {
-      if (!photos.length) return 0;
-      return (idx + photos.length) % photos.length;
     };
 
     const render = (idx) => {
@@ -224,27 +196,25 @@ const safeJson = JSON.stringify(photos).replaceAll("<", "\\u003c");
       const p = photos[currentIndex];
       if (!p) return;
 
-      setLoading(true);
       img.src = p.src;
-      img.alt = p.title?.trim() ? p.title : "Photograph";
-      img.decoding = "async";
-      img.onload = () => setLoading(false);
-      img.onerror = () => setLoading(false);
+      img.alt = p.title?.trim() || "Photograph";
 
-      setText(titleEl, p.title || "");
-      setText(shotEl, p.shotUsing || "");
-      setText(locEl, p.location || "");
-      setText(descEl, p.description || "");
+      // Title
+      if (titleEl) titleEl.textContent = p.title?.trim() || "";
 
-      setRowVisible(rowShot, !!(p.shotUsing && String(p.shotUsing).trim()));
-      setRowVisible(rowLoc, !!(p.location && String(p.location).trim()));
+      // Meta line: combine shot + location
+      const parts = [];
+      if (p.shotUsing?.trim()) parts.push(p.shotUsing.trim());
+      if (p.location?.trim()) parts.push(p.location.trim());
+      if (metaEl) metaEl.textContent = parts.join(" · ");
 
-      // Prefetch adjacent images for snappier navigation
-      prefetch(clampIndex(currentIndex + 1));
-      prefetch(clampIndex(currentIndex - 1));
+      if (currentIndex < photos.length - 1) prefetch(currentIndex + 1);
+      if (currentIndex > 0) prefetch(currentIndex - 1);
+
+      updateNavVisibility();
     };
 
-    const openAt = (idx) => {
+    const open = (idx) => {
       render(idx);
       previousOverflow = document.documentElement.style.overflow;
       document.documentElement.style.overflow = "hidden";
@@ -257,44 +227,38 @@ const safeJson = JSON.stringify(photos).replaceAll("<", "\\u003c");
       document.documentElement.style.overflow = previousOverflow;
     };
 
-    const next = () => render(currentIndex + 1);
-    const prev = () => render(currentIndex - 1);
+    const next = () => {
+      if (currentIndex < photos.length - 1) render(currentIndex + 1);
+    };
+    const prev = () => {
+      if (currentIndex > 0) render(currentIndex - 1);
+    };
 
     for (const el of triggers) {
       el.addEventListener("click", () => {
-        const rawIndex = el.getAttribute("data-gallery-index");
-        const idx = Number(rawIndex ?? 0);
-        if (!Number.isFinite(idx)) return;
-        openAt(idx);
+        const idx = Number(el.getAttribute("data-gallery-index") ?? 0);
+        if (Number.isFinite(idx)) open(idx);
       });
     }
 
-    closeBtn && closeBtn.addEventListener("click", close);
-    prevBtn && prevBtn.addEventListener("click", prev);
-    nextBtn && nextBtn.addEventListener("click", next);
+    closeBtn?.addEventListener("click", close);
+    prevBtn?.addEventListener("click", prev);
+    nextBtn?.addEventListener("click", next);
 
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) close();
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) close();
     });
 
-    dialog.addEventListener("cancel", (event) => {
-      event.preventDefault();
+    dialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
       close();
     });
 
-    dialog.addEventListener("keydown", (event) => {
+    dialog.addEventListener("keydown", (e) => {
       if (!dialog.open) return;
-      if (event.key === "Escape") {
-        event.preventDefault();
-        close();
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        next();
-      } else if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        prev();
-      }
+      if (e.key === "Escape") { e.preventDefault(); close(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
     });
   });
 </script>
-
