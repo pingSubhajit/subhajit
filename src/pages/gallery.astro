@@ -15,31 +15,31 @@ const canonical = Astro.url.href;
 ---
 
 <MainLayout
-  seo={{
-    title: pageTitle,
-    description: pageDescription,
-    canonical,
-    robots: "index,follow",
-    openGraph: {
-      title: pageTitle,
-      description: pageDescription,
-      type: "website",
-      siteName: "Subhajit Kundu",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: pageTitle,
-      description: pageDescription,
-    },
-  }}
+        seo={{
+			title: pageTitle,
+			description: pageDescription,
+			canonical,
+			robots: "index,follow",
+			openGraph: {
+				title: pageTitle,
+				description: pageDescription,
+				type: "website",
+				siteName: "Subhajit Kundu",
+			},
+			twitter: {
+				card: "summary_large_image",
+				title: pageTitle,
+				description: pageDescription,
+			},
+		}}
 >
-  <main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[1100px] mx-auto">
-    <div class="max-w-[600px] mb-10">
-      <h1 class="">My Gallery</h1>
-      <p class="mt-2 lg:mt-8 text-sm opacity-80">Photography has always been one of my biggest passion. Here i take the opportunity to share some of the shots i've taken that holds the most significant meaning to me.</p>
-    </div>
+    <main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[1100px] mx-auto reveal-children">
+        <div class="max-w-[600px] mb-10">
+            <h1 class="">My Gallery</h1>
+            <p class="mt-2 lg:mt-8 text-sm opacity-80">Photography has always been one of my biggest passion. Here i take the opportunity to share some of the shots i've taken that holds the most significant meaning to me.</p>
+        </div>
 
-    <GalleryGrid photos={photos} />
-  </main>
+        <GalleryGrid photos={photos} />
+    </main>
 </MainLayout>
 

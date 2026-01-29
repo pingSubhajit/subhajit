@@ -45,8 +45,7 @@ const personJsonLd = {
 	},
 	jsonLd: personJsonLd,
 }}>
-	<main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[850px] mx-auto">
-		<div class="reveal-children">
+	<main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[850px] mx-auto reveal-children">
 			<LightboxImage src={profile} alt="Subhajit Kundu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full" dialogId="profile" />
 			<h1 class="mt-4">Subhajit Kundu</h1>
 			<p class="mt-2 lg:mt-8 text-sm">Building tooling for developing robust, reliable RAG system at scale. Dedicated on making RAG as easy as writing six lines of code. Shipping software at <a href="https://betterstacks.com" target="_blank">Betterstacks</a></p>
@@ -140,52 +139,5 @@ const personJsonLd = {
 					</div>
 				</div>
 			</section>
-		</div>
 	</main>
 </MainLayout>
-
-<style>
-	@keyframes reveal-up {
-		0% { opacity: 0; transform: translateY(8px); filter: blur(6px); }
-		100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-	}
-
-	.reveal-children {
-		--reveal-duration: 800ms;
-		--reveal-stagger: 0.08s;
-	}
-
-	.reveal-children > * {
-		opacity: 0;
-		transform: translateY(8px);
-		filter: blur(6px);
-		animation-name: reveal-up;
-		animation-duration: var(--reveal-duration);
-		animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-		animation-fill-mode: forwards;
-		animation-delay: 0s;
-		will-change: opacity, transform, filter;
-	}
-
-	.reveal-children > *:nth-child(1) { animation-delay: calc(var(--reveal-stagger) * 0); }
-	.reveal-children > *:nth-child(2) { animation-delay: calc(var(--reveal-stagger) * 1); }
-	.reveal-children > *:nth-child(3) { animation-delay: calc(var(--reveal-stagger) * 2); }
-	.reveal-children > *:nth-child(4) { animation-delay: calc(var(--reveal-stagger) * 3); }
-	.reveal-children > *:nth-child(5) { animation-delay: calc(var(--reveal-stagger) * 4); }
-	.reveal-children > *:nth-child(6) { animation-delay: calc(var(--reveal-stagger) * 5); }
-	.reveal-children > *:nth-child(7) { animation-delay: calc(var(--reveal-stagger) * 6); }
-	.reveal-children > *:nth-child(8) { animation-delay: calc(var(--reveal-stagger) * 7); }
-	.reveal-children > *:nth-child(9) { animation-delay: calc(var(--reveal-stagger) * 8); }
-	.reveal-children > *:nth-child(10) { animation-delay: calc(var(--reveal-stagger) * 9); }
-	.reveal-children > *:nth-child(11) { animation-delay: calc(var(--reveal-stagger) * 10); }
-	.reveal-children > *:nth-child(12) { animation-delay: calc(var(--reveal-stagger) * 11); }
-
-	@media (prefers-reduced-motion: reduce) {
-		.reveal-children > * {
-			animation: none !important;
-			opacity: 1 !important;
-			transform: none !important;
-			filter: none !important;
-		}
-	}
-</style>
