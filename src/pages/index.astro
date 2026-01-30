@@ -14,6 +14,7 @@ const ogImage = (profile as any).src ?? (profile as any);
 
 const manifest = manifestJson as unknown as GalleryManifest;
 const galleryPhotos = Array.isArray(manifest?.photos) ? manifest.photos : [];
+const preloadPhotos = galleryPhotos.slice(0, 3);
 
 const personJsonLd = {
 	"@context": "https://schema.org",
@@ -45,6 +46,16 @@ const personJsonLd = {
 	},
 	jsonLd: personJsonLd,
 }}>
+	{preloadPhotos.map((photo, i) => (
+		<link
+			slot="head"
+			rel="preload"
+			as="image"
+			href={photo.src}
+			fetchpriority={i === 0 ? "high" : "low"}
+		/>
+	))}
+
 	<main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[850px] mx-auto reveal-children">
 			<LightboxImage src={profile} alt="Subhajit Kundu" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full" dialogId="profile" />
 			<h1 class="mt-4">Subhajit Kundu</h1>

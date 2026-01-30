@@ -9,6 +9,7 @@ import manifestJson from "@/generated/gallery.manifest.json";
 
 const manifest = manifestJson as unknown as GalleryManifest;
 const photos = Array.isArray(manifest?.photos) ? manifest.photos : [];
+const preloadPhotos = photos.slice(0, 12);
 
 const pageTitle = "Gallery";
 const pageDescription = "A collection of photographs.";
@@ -34,6 +35,16 @@ const canonical = Astro.url.href;
 			},
 		}}
 >
+	{preloadPhotos.map((photo, i) => (
+		<link
+			slot="head"
+			rel="preload"
+			as="image"
+			href={photo.src}
+			fetchpriority={i === 0 ? "high" : "low"}
+		/>
+	))}
+
     <main class="px-6 sm:px-10 md:px-16 lg:px-24 py-20 lg:py-32 max-w-[1100px] mx-auto reveal-children">
         <div class="max-w-[600px] mb-10">
             <h1 class="flex items-center gap-2">

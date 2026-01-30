@@ -67,6 +67,9 @@ const tw = {
 		{jsonLd && !Array.isArray(jsonLd) && (
 			<script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
 		)}
+
+		{/* Per-page head additions (preloads, etc.) */}
+		<slot name="head" />
 	</head>
 	<body>
 		<div class="w-full bg-gradient-to-b from-background to-background/0 h-48 fixed top-0 left-0 pointer-events-none z-10"></div>
