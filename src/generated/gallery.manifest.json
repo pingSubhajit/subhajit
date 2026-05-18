@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-05-18T09:48:36.133Z",
+  "thumb": {
+    "width": 900,
+    "quality": 78,
+    "format": "jpeg"
+  },
+  "photos": [
+    {
+      "id": "gallery-taj-landing-jpg",
+      "src": "/gallery/taj-landing.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/taj-landing.jpg",
+      "width": 4000,
+      "height": 5333,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "Where arrivals learn to wait",
+      "shotUsing": "Canon EOS R10 ƒ/7.1, 1/320, 41mm, ISO800",
+      "location": "Taj Mahal Palace Hotel, Mumbai",
+      "description": ""
+    },
+    {
+      "id": "gallery-passing-lights-jpg",
+      "src": "/gallery/passing-lights.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/passing-lights.jpg",
+      "width": 3209,
+      "height": 4278,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "The city passing before it can be held",
+      "shotUsing": "Canon EOS R10 ƒ/9, 1/6, 30mm, ISO400",
+      "location": "Coastal Road, Marine Drive, Mumbai",
+      "description": ""
+    },
+    {
+      "id": "gallery-palms-over-the-harbor-jpg",
+      "src": "/gallery/palms-over-the-harbor.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/palms-over-the-harbor.jpg",
+      "width": 4000,
+      "height": 5333,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "The shore holding its breath",
+      "shotUsing": "Canon EOS R10 ƒ/8, 1/60, 32mm, ISO800",
+      "location": "Girgaon Beach, Mumbai",
+      "description": ""
+    },
+    {
+      "id": "gallery-guitar-jpg",
+      "src": "/gallery/guitar.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/guitar.jpg",
+      "width": 3659,
+      "height": 4879,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "In between the notes left unfinished",
+      "shotUsing": "Canon EOS R10 ƒ/5.6, 1/80, 50mm, ISO125",
+      "location": "Kalyani, India",
+      "description": ""
+    },
+    {
+      "id": "gallery-leaves-jpg",
+      "src": "/gallery/leaves.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/leaves.jpg",
+      "width": 4000,
+      "height": 5328,
+      "thumbWidth": 900,
+      "thumbHeight": 1199,
+      "title": "The lifeline of local transport",
+      "shotUsing": "Canon EOS R10 ƒ/6.3, 1/4000, 150mm, ISO400",
+      "location": "Kalyani, India",
+      "description": ""
+    },
+    {
+      "id": "gallery-halycron-jpg",
+      "src": "/gallery/halycron.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/halycron.jpg",
+      "width": 4000,
+      "height": 5328,
+      "thumbWidth": 900,
+      "thumbHeight": 1199,
+      "title": "Last image of the Halycron codebase before the acquisition",
+      "shotUsing": "Canon EOS R10 ƒ/3.5, 1/200, 18mm, ISO4000",
+      "location": "Kalyani, India",
+      "description": ""
+    },
+    {
+      "id": "gallery-workspace-jpg",
+      "src": "/gallery/workspace.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/workspace.jpg",
+      "width": 4000,
+      "height": 5333,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "Until the work stops feeling like work",
+      "shotUsing": "Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
+      "location": "Kalyani, India",
+      "description": ""
+    },
+    {
+      "id": "gallery-keyboard-jpg",
+      "src": "/gallery/keyboard.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/keyboard.jpg",
+      "width": 4000,
+      "height": 5333,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "The gateway of building the world, syntax by syntax",
+      "shotUsing": "Canon EOS R10 ƒ/3.5, 1/80, 18mm, ISO1600",
+      "location": "Kalyani, India",
+      "description": ""
+    },
+    {
+      "id": "gallery-railway-jpg",
+      "src": "/gallery/railway.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/railway.jpg",
+      "width": 3664,
+      "height": 4886,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "Chasing the waves of livelihood and ambition",
+      "shotUsing": "Canon EOS R10 ƒ/4, 1/30, 24mm, ISO400",
+      "location": "Kalyani, India",
+      "description": ""
+    },
+    {
+      "id": "gallery-hostel-jpg",
+      "src": "/gallery/hostel.jpg",
+      "thumbSrc": "/gallery/thumbs/gallery/hostel.jpg",
+      "width": 3513,
+      "height": 4684,
+      "thumbWidth": 900,
+      "thumbHeight": 1200,
+      "title": "Forgotten and never replaced",
+      "shotUsing": "Canon EOS R10 ƒ/3.5, 1/250, 18mm, ISO1600",
+      "location": "Kalyani, India",
+      "description": ""
+    }
+  ]
+}
