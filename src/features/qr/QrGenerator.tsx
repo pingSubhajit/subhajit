@@ -528,7 +528,13 @@ export function QrGenerator() {
     if (!qrRef.current || !normalized.valid) return;
 
     try {
-      const blob = await qrRef.current.getRawData(extension);
+      const QRCodeStyling = (await import("qr-code-styling")).default;
+      const renderType = extension === "png" ? ("canvas" as const) : ("svg" as const);
+      const exportQrCode = new QRCodeStyling({
+        ...qrOptions,
+        type: renderType,
+      }) as QRCodeStylingInstance;
+      const blob = await exportQrCode.getRawData(extension);
       if (!blob) throw new Error("Missing export data");
       downloadBlob(blob, `qr-code.${extension}`);
       setStatus(`${extension.toUpperCase()} downloaded`);
@@ -546,7 +552,12 @@ export function QrGenerator() {
         return;
       }
 
-      const blob = await qrRef.current.getRawData("png");
+      const QRCodeStyling = (await import("qr-code-styling")).default;
+      const exportQrCode = new QRCodeStyling({
+        ...qrOptions,
+        type: "canvas",
+      }) as QRCodeStylingInstance;
+      const blob = await exportQrCode.getRawData("png");
       if (!blob) throw new Error("Missing PNG data");
       await navigator.clipboard.write([
         new ClipboardItem({ "image/png": blob }),
