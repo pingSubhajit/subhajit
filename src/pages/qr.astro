@@ -1,0 +1,39 @@
+---
+import MainLayout from "@/layouts/main.astro"
+import { QrGenerator } from "@/features/qr/QrGenerator"
+
+const pageTitle = "QR Code Generator"
+const pageDescription = "Create customized QR codes for URLs."
+const canonical = Astro.url.href
+---
+
+<MainLayout
+  seo={{
+    title: pageTitle,
+    description: pageDescription,
+    canonical,
+    robots: "noindex,nofollow",
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      type: "website",
+      siteName: "Subhajit Kundu",
+    },
+    twitter: {
+      card: "summary",
+      title: pageTitle,
+      description: pageDescription,
+    },
+  }}
+>
+  <main class="mx-auto min-h-screen w-full max-w-6xl px-5 py-8 sm:px-8 lg:px-10 lg:py-12">
+    <header class="mb-8 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.18em] text-foreground/45">Tool</p>
+        <h1 class="mt-2 text-3xl font-medium tracking-normal text-foreground sm:text-4xl">QR Code Generator</h1>
+      </div>
+    </header>
+
+    <QrGenerator client:load />
+  </main>
+</MainLayout>
